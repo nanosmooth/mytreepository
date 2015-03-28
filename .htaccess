@@ -1,0 +1,16 @@
+# Disable Directory Browsing
+Options All -Indexes
+
+# When directory browsing is attempted redirect to root
+errorDocument 403 http://localhost/workspace/hamarlok/
+
+# For Friendly URLs
+
+RewriteEngine On
+
+RewriteRule ^activation/([a-z0-9_-]+)$ activation.php?code=$1
+RewriteRule ^activation/([a-z0-9_-]+)/$ activation.php?code=$1
+
+RewriteRule activation.php?code=$1 ^activation/([a-z0-9_-]+)$ 
+RewriteRule activation.php?code=$1 ^activation/([a-z0-9_-]+)/$
+
