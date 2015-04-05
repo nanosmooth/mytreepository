@@ -16,7 +16,7 @@
 <div class="container">
 <?php 
 include("dbconfig.php");
-
+session_start();
 if($_POST)
 {
 $channel=$_POST['channel'];
@@ -26,6 +26,9 @@ if($channel=="fb_login")
 	$fname=$_POST['fname'];
 	$lname=$_POST['lname'];
 	$fb_id=$_POST['fb_id'];
+	$_SESSION['fname']=$fname;
+	$_SESSION['fb_id']=$fb_id;
+	$_SESSION['gender']=$gender;
 	if($_POST['gender']=="male")$gender='M';else $gender='F';
 	$date = date('Y-m-d H:i:s');
 	$query="select count(*) as count from user where email='$email'";
@@ -33,16 +36,15 @@ if($channel=="fb_login")
 	$row = mysqli_fetch_assoc($result);
 	if($row['count']==1)
 	{
-		$query="UPDATE user set fb_id='$fb_id' where email='$email'";
+		$query="UPDATE user set fb_id='$fb_id' where email='$email' and fb_id IS NULL";
 		$update=mysqli_query($con,$query);
-		echo "<p class='hl_messages'>Welcome back $fname $lname <img src='http://graph.facebook.com/$fb_id/picture?redirect=1&height=200&width=200&type=large'</p>";
+		header('Location: ../index.php');
 	}
 	else 
 	{	
 	$query="INSERT INTO user (UserId, Email, FirstName,LastName,Gender,CreatedDate,registereddate,lastmodifieddate,Active,FB_ID) VALUES ('$email','$email','$fname','$lname','M',NOW(),NOW(),NOW(),1,'$fb_id')";
 	$insert=mysqli_query($con,$query) or die(mysql_error());
-	if($insert)echo "<p align='center'>Welcome $fname $lname <img src='http://graph.facebook.com/$fb_id/picture?redirect=1&height=200&width=200&type=large' /></p>";
-		else die(mysql_error());
+	if($insert) header('Location: ../index.php'); else die(mysql_error());
 	}
 }
 if($channel=="hl_login")
@@ -58,13 +60,17 @@ if($channel=="hl_login")
    $row = mysqli_fetch_assoc($result);
 	if($row['count']==1 && $row['activestate']=="1")
     {
-    	$query="select firstname,lastname,fb_id from user where userid='$email'";
+    	$query="select firstname,lastname,fb_id,gender from user where userid='$email'";
 		$result=mysqli_query($con,$query);
 		$row = mysqli_fetch_assoc($result);
 		$fname=$row['firstname'];
 		$lname=$row['lastname'];
 		$fb_id=$row['fb_id'];
-    	echo "<p class='hl_messages'>Welcome back $fname $lname <img src='http://graph.facebook.com/$fb_id/picture?redirect=1&height=200&width=200&type=large' /></p>";
+		$gender=$row['gender'];
+		$_SESSION['fname']=$fname;
+		$_SESSION['fb_id']=$fb_id;
+		$_SESSION['gender']=$gender;
+		header('Location: ../index.php');
     }
     else if($row['count']==1 && $row['activestate']=="0")
     {

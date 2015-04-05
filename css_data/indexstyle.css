@@ -1,13 +1,14 @@
 @CHARSET "ISO-8859-1";
 @import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700);
+
+
+
 body
 {
 font-family: "PT Sans",sans-serif,arial;
 font-style: normal;
 	margin:0px;
 	padding:0px;
-	  background-color: #fcfcfc;
-
 }
 
 .container
@@ -15,28 +16,113 @@ font-style: normal;
   width: 432px;
   margin: 32px auto 32px auto;
   padding: 24px 12px 24px 12px;
-  background: #FFFFFF;
-  border-top: 1px solid #e2e2e2;
   overflow-wrap: break-word;
+  border-top:    1px solid #ff0000;
+  border-right:  1px solid #0080ff;
+  border-bottom: 1px solid #3ac545;
+  border-left:   1px solid #ffff00;
+  
 }
 #hamarlokbranding
 {
-  font-size: 48px;
-  line-height: 64px;
+  font-size: 46px;
+  line-height: 92px;
+  height:92px;
   text-align: left;
-  padding-left: 8px;
-  background-color: #6a6a6a;
-  color: #fff;
-  font-family: "PT Sans",sans-serif,arial;
+  background-color:#43444A;
   font-style: normal;
-  font-weight: 700;
-  border-bottom: solid 2px #FC0;
+  font-weight: 100;
+  /*border-bottom: solid 2px #FC0;
       box-shadow: 0 2px 5px rgba(0,0,0,.26);
   -moz-box-shadow: 0 2px 5px rgba(0,0,0,.26);
   -webkit-box-shadow: 0 2px 5px rgba(0,0,0,.26);
-  z-index: 1;
- 
+  z-index: 1;*/
 }
+#sitetitle
+{
+	color:#fff; 
+	width:300px;
+	padding-left:10px;
+	padding-right:10px;
+	text-align:center;
+	float:left;
+}
+
+.registered #hamarlokbranding
+{
+	position:fixed;
+	font-size: 28px;
+  line-height: 56px;
+  height:56px;
+  margin-top:-96px;
+  width:100%;
+  z-index:100;
+  background-color:rgba(67, 68, 74, 0.82);
+}
+
+#topdash
+{
+	float:right;
+}
+
+#topdash input
+{
+  margin: 0px;
+  cursor: pointer;
+  color: #FFF;
+  height: 56px;
+  font-size:14px;
+  line-height: 56px;
+  background:none;
+}
+#topdash input:hover
+{
+	color:#DDD;	
+}
+#topdash p,#topdash form
+{
+	float:left;
+  margin: 0px;
+  font-size: 14px;
+  font-weight: normal;
+  padding-left:5px;
+  padding-right:5px;
+}
+#familyfield
+{
+	position:relative;
+	margin: 96px auto 32px auto;
+	width:1000px;
+	height:1000px;
+}
+.person
+{
+	position:absolute;
+	width:200px;
+	height:200px;
+	overflow-wrap: break-word;
+	background-color: #f1f1f1;
+  border-bottom: 1px solid #EEE;
+}
+#mother	{left:0px	;top:0px;}
+#father {left:400px ;top:0px;}
+#user	{left:400px ;top:400px;}
+#sibling{left:400px ;top:800px;}
+#spouse	{left:800px ;top:400px;}
+#kid	{left:800px ;top:800px;}
+.person#user
+{
+	  border-top:    1px solid #ff0000;
+  border-right:  1px solid #0080ff;
+  border-bottom: 1px solid #3ac545;
+  border-left:   1px solid #ffff00;
+}
+#mythumbnail
+{
+	padding:12px;
+	float:left;
+}
+
 input
 {
  -webkit-box-sizing: border-box; /* For legacy WebKit based browsers */

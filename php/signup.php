@@ -59,11 +59,7 @@ if($_POST)
 		else 
 		mysqli_query($con,"INSERT INTO user (UserId, Email, FirstName,LastName,Gender,CreatedDate,registereddate,lastmodifieddate,Active,birthdate) VALUES ('$email','$email','$fname','$lname','$gender',NOW(),NOW(),NOW(),1,'$dob')");
 		include 'sendvmail.php';
-		$to=$email;
-		$subject="Hamarlok Email verification";
-		$base_url="http://localhost/workspace/hamarlok/php/";
-		$body='Hi '.$fname.' '.$lname.', <br/> <br/>Please verify your email and get started with your Hamarlok account setup. Click on the following link for verification: <br/> <br/> <a href="'.$base_url.'activation.php?code='.$activation.'">'.$base_url.'activation.php?code='.$activation.'</a>';
-		Send_Mail($to,$subject,$body);
+		Send_Mail($email,$fname,$lname,$activation);
 		echo "<p class='hl_messages'>Sign Up almost done!<br /><br />Please complete Email Verification by clicking on the link we sent to $email</p>";
 	}
 }

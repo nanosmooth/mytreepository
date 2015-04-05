@@ -1,7 +1,10 @@
 <?php
-function Send_Mail($to,$subject,$body)
+function Send_Mail($to,$fname,$lname,$activation)
 {
 require 'class.phpmailer.php';
+$base_url="http://localhost/workspace/hamarlok/php/";
+$subject="Hamarlok Email verification";
+$body='Hi '.$fname.' '.$lname.', <br/> <br/>Please verify your email and get started with your Hamarlok account setup. Click on the following link for verification: <br/> <br/> <a href="'.$base_url.'activation.php?code='.$activation.'">'.$base_url.'activation.php?code='.$activation.'</a>';
 $from       = "welcometeam@hamarlok.com";
 $mail       = new PHPMailer();
 $mail->IsSMTP(true);            // use SMTP

@@ -6,8 +6,7 @@
 <link rel="stylesheet" href="css_data/indexstyle.css" />
 <link rel="shortcut icon" href="img_data/favicon.ico" type="image/x-icon">
 <script type="text/javascript" src="js_data/jquery.min.js"></script>
-<script type="text/javascript" src="js_data/dob_picker.js"></script>
-<script type="text/javascript" src="js_data/validator.js"></script>
+
 <script type="text/javascript">
   
   // This is called with the results from from FB.getLoginStatus().
@@ -87,11 +86,17 @@
 </head>
 
     <body>
-
-<div id="hamarlokbranding">
-	Hamarlok
-</div>
-<div class="container">
+<?php 
+session_start();
+if(!($_SESSION))
+{ 
+?>
+<script type="text/javascript" src="js_data/dob_picker.js"></script>
+<script type="text/javascript" src="js_data/validator.js"></script>
+     <div id="hamarlokbranding">
+	<div id="sitetitle">H a m a r l o k</div> 
+     </div>
+    <div class="container">
 	
 	<div id="fblogin" class="fbloginbtn"><input type="submit" Value="Facebook Login" onclick="fb_login();"/></div>
 	<div class="infowords">
@@ -130,7 +135,52 @@
 	<input type="submit" value="Sign Up" />
 	</form>
 	</div>
-</div>
+    </div>
+
+<?php 
+} 
+else 
+{
+	
+	$fname=$_SESSION['fname'];
+?>
+
+	<div class="registered">
+	<div id="hamarlokbranding">
+	<div id="sitetitle">H a m a r l o k</div>
+	 <div id="topdash">
+ <?php 
+	  if(isset($_SESSION['fb_id']))
+	  {$fb_id=$_SESSION['fb_id'];
+	   echo "<div id='mythumbnail'><img src='http://graph.facebook.com/$fb_id/picture?redirect=1&height=32&width=32' width=32px height=32px/></div>";
+	  }
+	  else if($_SESSION['gender']=='M')
+	  {echo "<div id='mythumbnail'><img src='img_data/silhe.png' width=32px height=32px/></div>";}
+	  	else if($_SESSION['gender']=='F')
+	  	{echo "<div id='mythumbnail'><img src='img_data/silshe.png' width=32px height=32px/></div>";}
+	 ?>	
+
+	 
+	  <form action="php/logout.php" name="logout_form" method="POST">
+	 <input type="submit" value="Log Out"/>
+	 </form> 
+	 </div><!-- top dash ends here -->
+	 </div><!-- hamarlokbranding ends here -->
+	 <div id="familyfield">
+	 <div class="person" id="mother"></div>
+	 <div class="person" id="father"></div>
+	 <div class="person" id="user"></div>
+	 <div class="person" id="spouse"></div>
+	 <div class="person" id="sibling"></div>
+	 <div class="person" id="kid"></div>
+	 </div><!-- family field ends here -->
+	 </div><!-- registered ends here -->
+	 
+	               	   
+<?php    
+}
+?>
+
 
 
     </body>
