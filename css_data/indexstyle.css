@@ -41,7 +41,6 @@ font-style: normal;
 #sitetitle
 {
 	color:#fff; 
-	width:300px;
 	padding-left:10px;
 	padding-right:10px;
 	text-align:center;
@@ -51,10 +50,11 @@ font-style: normal;
 .registered #hamarlokbranding
 {
 	position:fixed;
+	top:0px;
 	font-size: 28px;
   line-height: 56px;
   height:56px;
-  margin-top:-96px;
+ /* margin-top:-96px; */
   width:100%;
   z-index:100;
   background-color:rgba(67, 68, 74, 0.82);
@@ -88,35 +88,7 @@ font-style: normal;
   padding-left:5px;
   padding-right:5px;
 }
-#familyfield
-{
-	position:relative;
-	margin: 96px auto 32px auto;
-	width:1000px;
-	height:1000px;
-}
-.person
-{
-	position:absolute;
-	width:200px;
-	height:200px;
-	overflow-wrap: break-word;
-	background-color: #f1f1f1;
-  border-bottom: 1px solid #EEE;
-}
-#mother	{left:0px	;top:0px;}
-#father {left:400px ;top:0px;}
-#user	{left:400px ;top:400px;}
-#sibling{left:400px ;top:800px;}
-#spouse	{left:800px ;top:400px;}
-#kid	{left:800px ;top:800px;}
-.person#user
-{
-	  border-top:    1px solid #ff0000;
-  border-right:  1px solid #0080ff;
-  border-bottom: 1px solid #3ac545;
-  border-left:   1px solid #ffff00;
-}
+
 #mythumbnail
 {
 	padding:12px;
@@ -247,4 +219,25 @@ form
 {
 	font-size:18px;
 	line-height:32px;
+}
+#familyfield
+{
+	/*background-color:#fafafa;*/
+	margin:88px auto 32px auto;
+	width:40%;
+	position:relative;
+}
+.person
+{
+	position:absolute;
+	overflow-wrap: break-word;
+	background-color: #f1f1f1;
+    border-bottom: 1px solid #EEE;
+  font-size:2.5vw;
+  
+}
+.person .name
+{
+	position:absolute;
+	bottom:0px;
 }

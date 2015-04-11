@@ -166,14 +166,9 @@ else
 	 </form> 
 	 </div><!-- top dash ends here -->
 	 </div><!-- hamarlokbranding ends here -->
-	 <div id="familyfield">
-	 <div class="person" id="mother"></div>
-	 <div class="person" id="father"></div>
-	 <div class="person" id="user"></div>
-	 <div class="person" id="spouse"></div>
-	 <div class="person" id="sibling"></div>
-	 <div class="person" id="kid"></div>
-	 </div><!-- family field ends here -->
+	 
+	 <div id="familyfield"></div>
+     <script type="text/javascript" src="js_data/gen_fam.js"></script>
 	 </div><!-- registered ends here -->
 	 
 	               	   
