@@ -1,10 +1,26 @@
+<?php session_start()?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=Cp1252">
 <meta content='width=device-width, initial-scale=1.0' name='viewport'/>
-<link rel="stylesheet" href="css_data/indexstyle.css" />
+<!-- botstrap headers -->
+ <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- Bootstrap -->
+    <link href="css_data/btsp/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<!-- bootstrap headers end -->
 <link rel="shortcut icon" href="img_data/favicon.ico" type="image/x-icon">
+<link href="css_data/indexstyle.css" rel="stylesheet">
 <script type="text/javascript" src="js_data/jquery.min.js"></script>
 
 <script type="text/javascript">
@@ -87,56 +103,72 @@
 
     <body>
 <?php 
-session_start();
 if(!($_SESSION))
 { 
 ?>
 <script type="text/javascript" src="js_data/dob_picker.js"></script>
 <script type="text/javascript" src="js_data/validator.js"></script>
-     <div id="hamarlokbranding">
-	<div id="sitetitle">H a m a r l o k</div> 
-     </div>
-    <div class="container">
+     
+	<div class="container-fluid navbar navbar-default hl-branding">
 	
-	<div id="fblogin" class="fbloginbtn"><input type="submit" Value="Facebook Login" onclick="fb_login();"/></div>
-	<div class="infowords">
-	Sign In
+	<h1>H a m a r l o k</h1>
+	
 	</div>
-	<div id="loginform">
+	<div class="container-fluid"> 
+    <div class="row">
+    <div class="col-md-4 col-xs-12  col-centered ">
+	<form><input type="submit" Value="Facebook Login" onclick="fb_login();" class="btn btn-default btn-lg btn-block fb-login-btn"/>
+	</form>
 	<form name="log_in_form" method="post" onsubmit="return logInValidate()" action="php/login.php">
-	<input type="email" name="email" placeholder="Email" />
-	<input type="password" name="password" placeholder="Password" />
-	<input type="submit" value="Log In" />
+	<p class="b-border font-18">
+	Sign In
+	</p>
+	<input type="email" name="email" placeholder="Email" class="form-control form-group col-b-lessmar"/>
+	<input type="password" name="password" placeholder="Password" class="form-control form-group" />
+	
+	<input type="submit" value="Log In" class="btn btn-default btn-lg btn-block hl-login-btn" />
 	<input type="text" name="channel" value="hl_login" style="display:none;" />
 	</form>
-	</div>
 	
-	<div class="infowords">
-	Sign Up
-	</div>
-	
-	<div id="signupform">
 	<form name="sign_up_form" method="post" onsubmit="return signUpValidate()" action="php/signup.php">
-	<input type="text" name="f_name" placeholder="First Name" />
-	<input type="text" name="l_name" placeholder="Last Name" />
-	<input type="email" name="email_id" placeholder="Email" />
-	<input type="password" name="passcode" placeholder="New Password" />
-	<div id="gender"><label><input type="radio" name="gender" id="female" value='F' />Female</label>
-	<label><input type="radio" name="gender" id="male" value='M'/>Male</label></div>
-	<div id="birthday">Birthday: <select id="dob_month" name="dob_month">
+	<p class="b-border font-18">
+	Sign Up
+	</p>
+	<input type="text" name="f_name" placeholder="First Name" class="form-control form-group col-b-lessmar"/>
+	<input type="text" name="l_name" placeholder="Last Name" class="form-control form-group col-b-lessmar"/>
+	<input type="email" name="email_id" placeholder="Email" class="form-control form-group col-b-lessmar"/>
+	<input type="password" name="passcode" placeholder="New Password" class="form-control form-group col-b-lessmar"/>
+	<div class="form-group col-b-lessmar">
+	<label class="radio-inline">
+	<input type="radio" name="gender" id="female" value='F' />Female
+	</label>
+	<label class="radio-inline">
+	<input type="radio" name="gender" id="male" value='M' />Male
+	</label>
+	</div>
+	<div class="col-lg-3 col-lr-lesspad form-group">
+	<p class="font-18">Birthday:</p>
+	</div> 
+	<div class="col-lg-3 col-sm-4 col-xs-4 col-lr-lesspad"><select id="dob_month" name="dob_month" class="form-control">
 	<option value='0'>Month</option>
 	</select>
-	<select id="dob_day" name="dob_day">
+	</div>
+	<div class="col-lg-3 col-sm-4 col-xs-4 col-lr-lesspad"><select id="dob_day" name="dob_day" class="form-control">
 	<option value='0'>Day</option>
 	</select>
-	<select id="dob_year" name="dob_year">
+	</div>
+	<div class="col-lg-3 col-sm-4 col-xs-4 col-lr-lesspad form-group"><select id="dob_year" name="dob_year" class="form-control">
 	<option value='0'>Year</option>
-	</select></div>
-	<input type="submit" value="Sign Up" />
+	</select>
+	</div>
+	
+	<input type="submit" value="Sign Up" class="btn btn-default btn-lg btn-block hl-signup-btn" />
 	</form>
 	</div>
     </div>
+    </div>
 
+</div><!-- container ends -->
 <?php 
 } 
 else 

@@ -3,17 +3,36 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=Cp1252">
 <meta content='width=device-width, initial-scale=1.0' name='viewport'/>
-<link rel="stylesheet" href="../css_data/indexstyle.css" />
+
 <link rel="shortcut icon" href="../img_data/favicon.ico" type="image/x-icon">
+<!-- botstrap headers -->
+ <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- Bootstrap -->
+    <link href="../css_data/btsp/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<!-- bootstrap headers end -->
+<link rel="stylesheet" href="../css_data/indexstyle.css" />    
 <title>Hamarlok - Sign Up</title>
 </head>
 <body>
 
 
-<div id="hamarlokbranding">
-	Hamarlok
-</div>
-<div class="container">
+<div class="container-fluid navbar navbar-default hl-branding">
+	
+	<h1>H a m a r l o k</h1>
+	</div>
+<div class="container-fluid"> 
+    <div class="row">
+    <div class="col-md-4 col-xs-12  col-centered">
 <?php 
 include("dbconfig.php");
 
@@ -39,12 +58,12 @@ if($_POST)
 	$row = mysqli_fetch_assoc($result);
 	if($row['count']==1 && $row['activestate']=='1')
 	{
-	echo "<p class='hl_messages'>You already seem to be registered. Please try to Log In by going back to:<br /> <a href='../index.php'>Log In / Sign Up page</a>.</p>";
+	echo "<div class='alert alert-info' role='alert'>You already seem to be registered. Please try to Log In by going back to:<br /> <a href='../index.php' class='alert-link'>Log In / Sign Up page</a>.</div>";
 	
 	}
 	else if ($row['count']==1 && $row['activestate']=='0')
 	{
-		echo "<p class='hl_messages'>You already seem to be registered. Please complete Email Verification by clicking on the link we sent to $email<br/><br/>To re-send the verification link click here.</p>";
+		echo "<div class='alert alert-info' role='alert'>You already seem to be registered. Please complete Email Verification by clicking on the link we sent to $email<br/><br/>To re-send the verification link click here.</div>";
 	}
 	else
 	{
@@ -60,12 +79,12 @@ if($_POST)
 		mysqli_query($con,"INSERT INTO user (UserId, Email, FirstName,LastName,Gender,CreatedDate,registereddate,lastmodifieddate,Active,birthdate) VALUES ('$email','$email','$fname','$lname','$gender',NOW(),NOW(),NOW(),1,'$dob')");
 		include 'sendvmail.php';
 		Send_Mail($email,$fname,$lname,$activation);
-		echo "<p class='hl_messages'>Sign Up almost done!<br /><br />Please complete Email Verification by clicking on the link we sent to $email</p>";
+		echo "<div class='alert alert-info' role='alert'>Sign Up almost done!<br /><br />Please complete Email Verification by clicking on the link we sent to $email</div>";
 	}
 }
 else
 header('Location: ../index.php');
 ?>
-</div>
+</div></div></div>
 </body>
 </html>
