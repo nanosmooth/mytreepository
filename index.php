@@ -54,7 +54,7 @@
 
   
   function fb_login(){
-	    FB.login(function(response) {
+           FB.login(function(response) {
 	    	statusChangeCallback(response);
 	        if (response.authResponse) {
 	            console.log('Welcome!  Fetching your information.... ');
@@ -110,7 +110,6 @@ if(!($_SESSION))
 <script type="text/javascript" src="js_data/validator.js"></script>
      
 	<div class="container-fluid navbar navbar-default hl-branding">
-	
 	<h1>H a m a r l o k</h1>
 	
 	</div>
