@@ -55,6 +55,6 @@ echo $msg;
 }
 else 
 	header('Location: ../index.php');
-?>
+?></div></div>
 </div>
 </body>
