@@ -106,17 +106,45 @@
 if(!($_SESSION))
 { 
 ?>
+<style>
+body
+{
+padding-top:161px;
+}
+</style>
 <script type="text/javascript" src="js_data/dob_picker.js"></script>
 <script type="text/javascript" src="js_data/validator.js"></script>
-     
-	<div class="container-fluid navbar navbar-default hl-branding">
-	<h1>H a m a r l o k</h1>
-	
-	</div>
+<script>
+$(window).scroll(function() {
+	  if ($(document).scrollTop() > 50) {
+		  
+	    $('#brand_shrinkable a').addClass('navbar-brand-hamarlok-shrink');
+	  } else {
+	    $('#brand_shrinkable a').removeClass('navbar-brand-hamarlok-shrink');
+	  }
+	});
+</script>     
+<nav class="navbar navbar-default navbar-fixed-top navbar-hamarlok">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header" id="brand_shrinkable">
+      <a class="navbar-brand navbar-brand-hamarlok" href="#">
+      <span style="color:blue">H </span>
+      <span style="color:orange">A </span>
+      <span style="color:blue">M </span>
+      <span style="color:mediumseagreen">A </span>
+      <span style="color:red">R </span>
+      <span style="color:mediumseagreen">L </span>
+      <span style="color:orange">O </span>
+      <span style="color:red">K</span>
+      </a>
+    </div>
+  </div><!-- /.container-fluid -->
+</nav>
 	<div class="container-fluid"> 
     <div class="row">
     <div class="col-md-4 col-xs-12  col-centered ">
-	<form><input type="submit" Value="Facebook Login" onclick="fb_login();" class="btn btn-default btn-lg btn-block fb-login-btn"/>
+	<form><input type="submit" Value="Facebook Login" onclick="fb_login();return false;" class="btn btn-default btn-lg btn-block fb-login-btn"/>
 	</form>
 	<form name="log_in_form" method="post" onsubmit="return logInValidate()" action="php/login.php">
 	<p class="b-border font-18">
@@ -131,7 +159,7 @@ if(!($_SESSION))
 	
 	<form name="sign_up_form" method="post" onsubmit="return signUpValidate()" action="php/signup.php">
 	<p class="b-border font-18">
-	Sign Up
+	Create new account
 	</p>
 	<input type="text" name="f_name" placeholder="First Name" class="form-control form-group col-b-lessmar"/>
 	<input type="text" name="l_name" placeholder="Last Name" class="form-control form-group col-b-lessmar"/>
