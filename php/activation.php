@@ -25,10 +25,31 @@
 <body>
 
 
-<div class="container-fluid navbar navbar-default hl-branding">
-	
-	<h1>H a m a r l o k</h1>
-	</div>
+<style>
+body
+{
+padding-top:161px;
+}
+</style>
+
+
+	<nav class="navbar navbar-default navbar-fixed-top navbar-hamarlok">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header" id="brand_shrinkable">
+      <a class="navbar-brand navbar-brand-hamarlok-shrink" href="#">
+      <span style="color:blue">H </span>
+      <span style="color:orange">A </span>
+      <span style="color:blue">M </span>
+      <span style="color:mediumseagreen">A </span>
+      <span style="color:red">R </span>
+      <span style="color:mediumseagreen">L </span>
+      <span style="color:orange">O </span>
+      <span style="color:red">K</span>
+      </a>
+    </div>
+  </div><!-- /.container-fluid -->
+</nav>
 <div class="container-fluid"> 
     <div class="row">
     <div class="col-md-4 col-xs-12  col-centered ">

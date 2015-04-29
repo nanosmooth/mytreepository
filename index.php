@@ -97,6 +97,12 @@
 	    });
 	}
 
+  function logOut() {
+  var form=$('<form action="php/logout.php"></form>');
+		  $('body').append(form);
+          form.submit();
+  }	
+
 </script>
 <title>Welcome to Hamarlok</title>
 </head>
@@ -203,29 +209,63 @@ else
 	
 	$fname=$_SESSION['fname'];
 ?>
+<style>
+body
+{
+padding-top:51px;
+}
+</style>
+ <script src="js_data/btsp/bootstrap.min.js"></script>
 
-	<div class="registered">
-	<div id="hamarlokbranding">
-	<div id="sitetitle">H a m a r l o k</div>
-	 <div id="topdash">
- <?php 
+	<nav class="navbar navbar-default navbar-fixed-top navbar-hamarlok">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header" id="brand_shrinkable">
+     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand navbar-brand-hamarlok-shrink" href="#">
+      <span style="color:blue">H </span>
+      <span style="color:orange">A </span>
+      <span style="color:blue">M </span>
+      <span style="color:mediumseagreen">A </span>
+      <span style="color:red">R </span>
+      <span style="color:mediumseagreen">L </span>
+      <span style="color:orange">O </span>
+      <span style="color:red">K</span>
+      </a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+          <li><div class="nav-pic"><?php 
 	  if(isset($_SESSION['fb_id']))
 	  {$fb_id=$_SESSION['fb_id'];
-	   echo "<div id='mythumbnail'><img src='http://graph.facebook.com/$fb_id/picture?redirect=1&height=32&width=32' width=32px height=32px/></div>";
+	   echo "<img src='http://graph.facebook.com/$fb_id/picture?redirect=1&height=64&width=64' width=32px height=32px/>";
 	  }
 	  else if($_SESSION['gender']=='M')
-	  {echo "<div id='mythumbnail'><img src='img_data/silhe.png' width=32px height=32px/></div>";}
+	  {echo "<img src='img_data/silhe.png' width=32px height=32px/>";}
 	  	else if($_SESSION['gender']=='F')
-	  	{echo "<div id='mythumbnail'><img src='img_data/silshe.png' width=32px height=32px/></div>";}
-	 ?>	
+	  	{echo "<img src='img_data/silshe.png' width=32px height=32px/>";}
+	 ?></div></li>
+             <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php print ucfirst($fname).' ';?><span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                
+                 <li><a href='javascript:void(0)' onclick='logOut()'>Log Out</a></li>
+              </ul>
+            </li>
+            </ul>
+     </div><!--/.nav-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
 
 	 
-	  <form action="php/logout.php" name="logout_form" method="POST">
-	 <input type="submit" value="Log Out"/>
-	 </form> 
-	 </div><!-- top dash ends here -->
-	 </div><!-- hamarlokbranding ends here -->
-	 
+	
+		 
 	 <div id="familyfield"></div>
      <script type="text/javascript" src="js_data/gen_fam.js"></script>
 	 </div><!-- registered ends here -->
