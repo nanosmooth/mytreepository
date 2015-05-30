@@ -1,0 +1,16 @@
+   <div class='mythumbnail'><?php 
+	  if(isset($_SESSION['fb_id']))
+	  {$fb_id=$_SESSION['fb_id'];
+	   echo "<img src='http://graph.facebook.com/$fb_id/picture?redirect=1&height=32&width=32' width=32px height=32px/>";
+	  }
+	  else if($_SESSION['gender']=='M')
+	  {echo "<img src='img_data/silhe.png' width=32px height=32px/>";}
+	  	else if($_SESSION['gender']=='F')
+	  	{echo "<img src='img_data/silshe.png' width=32px height=32px/>";}
+	 ?>
+	 
+	 </div>
+	 
+	 
+	 <div id="familyfield"></div>
+<script type="text/javascript" src="js_data/gen_fam.js"></script>

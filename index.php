@@ -1,4 +1,4 @@
-<?php session_start()?>
+<?php session_start();?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
@@ -93,7 +93,7 @@
 
 	        }
 	    }, {
-	        scope: 'publish_stream,email'
+	        scope: 'email'
 	    });
 	}
 
@@ -206,7 +206,7 @@ $(window).scroll(function() {
 } 
 else 
 {
-	
+	require 'php/hamarlok_api.php';
 	$fname=$_SESSION['fname'];
 ?>
 <style>
@@ -240,20 +240,10 @@ padding-top:51px;
     </div>
     <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-          <li><div class="nav-pic"><?php 
-	  if(isset($_SESSION['fb_id']))
-	  {$fb_id=$_SESSION['fb_id'];
-	   echo "<img src='http://graph.facebook.com/$fb_id/picture?redirect=1&height=64&width=64' width=32px height=32px/>";
-	  }
-	  else if($_SESSION['gender']=='M')
-	  {echo "<img src='img_data/silhe.png' width=32px height=32px/>";}
-	  	else if($_SESSION['gender']=='F')
-	  	{echo "<img src='img_data/silshe.png' width=32px height=32px/>";}
-	 ?></div></li>
+          <li><?php profile_image_32();?></li>
              <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php print ucfirst($fname).' ';?><span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                
                  <li><a href='javascript:void(0)' onclick='logOut()'>Log Out</a></li>
               </ul>
             </li>
@@ -262,15 +252,40 @@ padding-top:51px;
   </div><!-- /.container-fluid -->
 </nav>
 
+<div class="container-fluid">
+<div class="col-md-6 col-md-offset-3 col-xs-12 family-field">
+<div class="row">
+<div class="tile person"></div>
+<div class="tile connector"><div class="content"><img src="img_data/tconnect.png" class='bg'/></div></div>
+<div class="tile person"></div>
+</div>
 
-	 
-	
-		 
-	 <div id="familyfield"></div>
-     <script type="text/javascript" src="js_data/gen_fam.js"></script>
-	 </div><!-- registered ends here -->
-	 
-	               	   
+<div class="row">
+<div class="tile pad"></div>
+<div class="tile connector"></div>
+</div>
+
+<div class="row">
+<div class="tile pad"></div>
+<div class="tile connector"></div>
+<div class="tile person"><div class="content"><div class="table"><div class="table-cell"><?php profile_image_128();?></div></div></div><div class="name">Tejus</div></div>
+<div class="tile connector"></div>
+<div class="tile person"></div>
+</div>
+
+<div class="row">
+<div class="tile pad"></div>
+<div class="tile connector"></div>
+</div>
+
+<div class="row">
+<div class="tile pad"></div>
+<div class="tile connector"></div>
+<div class="tile person"></div>
+</div>
+</div>
+</div>
+               	   
 <?php    
 }
 ?>

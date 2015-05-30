@@ -29,10 +29,18 @@ font-family: "PT Sans",sans-serif,arial;
   font-size: 30px;
   line-height: 30px;
 }
+
 .nav-pic
 {
-	padding:9px 15px;
+  display: block;
+  text-align: center;
+  margin: 9px;
+  line-height: 32px;
+  width:32px;
+  height:32px;
+  font-size:16px;
 }
+
 div.mythumbnail
 {
 	float:right;
@@ -45,7 +53,7 @@ div.mythumbnail
 }
 .col-emboss
 {
-	  padding-top: 20px;
+ padding-top: 20px;
   padding-bottom: 20px;
   border-bottom: 1px solid #d0d0d0;
   background-color:#f2f2f2;
@@ -82,4 +90,100 @@ font-size:18px;
 	background-position:left center;
 	background-repeat:no-repeat;
     background-size: 32px 32px;
+}
+.family-field
+{
+	margin-top:64px;
+}
+.dummy {
+    margin-top: 100%;
+}
+.tile
+{
+    float:left;
+    position: relative;
+    width: 20%;
+    padding-bottom: 20%; /* = width for a 1:1 aspect ratio */
+    overflow:hidden;
+}
+
+.person
+{
+	background-color:#f1f1f1;
+}
+.pad
+{
+	
+}
+.connector
+{
+	
+}
+.content {
+    position:absolute;
+    height:100%; /* = 100% - 2*5% padding */
+    width:100%; /* = 100% - 2*5% padding */
+}
+.name{
+  position: absolute;
+  bottom: 0px;
+  background-color: rgb(0, 0, 0);
+  width: 100%;
+  color: #FFFFFF;
+  text-align: center;
+  opacity: 0.6;
+  font-size:14px;
+}
+
+.tile .rs{
+    width:auto;
+    height:auto;
+    max-height:100%;
+    max-width:100%;
+}
+.tile .rs:hover
+{
+	background-image:url('img_data/facebook_logo.png')
+}
+.bg
+{
+	
+	/* IE */
+  -ms-interpolation-mode: nearest-neighbor;
+
+  /* Firefox */
+  image-rendering: -moz-crisp-edges;
+
+  /* Safari */
+  image-rendering: -webkit-optimize-contrast;
+
+  /* Chrome and Opera */
+  image-rendering: pixelated;
+	
+}
+.tile .bg{
+    background-position:center center;
+    background-repeat:no-repeat;
+    background-size:cover; /* you change this to "contain" if you don't want the images to be cropped */
+    color:#fff;
+    width:100%;
+}
+.table{
+    display:table;
+    height:100%;
+    width:100%;
+}
+.table-cell{
+    display:table-cell;
+    vertical-align:middle;
+    height:100%;
+    width:100%;
+    text-align:center;
+    font-size:64px;
+}
+
+@media all and (max-width: 599px) and (min-width: 320px) {
+    .name{
+        font-size: 10px;
+    }
 }
