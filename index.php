@@ -254,35 +254,8 @@ padding-top:51px;
 
 <div class="container-fluid">
 <div class="col-md-6 col-md-offset-3 col-xs-12 family-field">
-<div class="row">
-<div class="tile person"></div>
-<div class="tile connector"><div class="content"><img src="img_data/tconnect.png" class='bg'/></div></div>
-<div class="tile person"></div>
-</div>
+<?php Create_Family_Layout(4,'Y',3);?>
 
-<div class="row">
-<div class="tile pad"></div>
-<div class="tile connector"></div>
-</div>
-
-<div class="row">
-<div class="tile pad"></div>
-<div class="tile connector"></div>
-<div class="tile person"><div class="content"><div class="table"><div class="table-cell"><?php profile_image_128();?></div></div></div><div class="name">Tejus</div></div>
-<div class="tile connector"></div>
-<div class="tile person"></div>
-</div>
-
-<div class="row">
-<div class="tile pad"></div>
-<div class="tile connector"></div>
-</div>
-
-<div class="row">
-<div class="tile pad"></div>
-<div class="tile connector"></div>
-<div class="tile person"></div>
-</div>
 </div>
 </div>
                	   
