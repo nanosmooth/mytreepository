@@ -1,0 +1,42 @@
+{
+	"name": "jsontxt",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "us_population.json",
+				"fileSystem": "raw"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"zipcode": {
+					"type": "string"
+				},
+				"city": {
+					"type": "string"
+				},
+				"loc": {
+					"type": "array",
+					"items": {
+						"type": "number"
+					}
+				},
+				"pop": {
+					"type": "integer"
+				},
+				"state": {
+					"type": "string"
+				}
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
